@@ -1,0 +1,107 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+body {
+  font-family: Verdana, sans-serif;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.9);
+  color: skyblue; }
+
+h1 {
+  padding: 20px 0;
+  font-family: sans-serif; }
+
+p {
+  padding: 5px 0;
+  color: #fff; }
+
+.item {
+  display: none; }
+
+/*========= Slider container==========*/
+.slideShow-container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5); }
+
+/*======== prev button and next button======*/
+.prev,
+.next {
+  cursor: pointer;
+  padding: 13px;
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border-radius: 0 3px 3px 0; }
+
+.prev {
+  -webkit-order: -1;
+  -ms-flex-order: -1;
+  order: -1;
+  border-radius: 3px 0 0 3px; }
+
+/*============ slider items=============*/
+.item {
+  color: #fff;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-shrink: 2;
+  -ms-flex-negative: 2;
+  flex-shrink: 2;
+  padding: 10px 20px; }
+  .item .numberText {
+    padding: 10px 0;
+    font-size: 12px; }
+  .item img {
+    width: 100%;
+    height: 500px; }
+  .item .text {
+    color: #f2f2f2;
+    padding: 10px; }
+
+/*============= The dots ===========*/
+.dot {
+  display: inline-block;
+  cursor: pointer;
+  height: 13px;
+  width: 13px;
+  background: #bbb;
+  border-radius: 50%; }
+
+.active,
+.dot:hover {
+  background: #717171; }
+
+/*========= Fading animation =========*/
+.fade {
+  -webkit-animation: fade 1.5s;
+  animation: fade 1.5s; }
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4; }
+  to {
+    opacity: 1; } }
+
+@keyframes fade {
+  from {
+    opacity: 0.4; }
+  to {
+    opacity: 1; } }
+
+/*======== SliderShow Container =======*/

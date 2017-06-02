@@ -1,0 +1,150 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, sans-serif;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.9);
+    color: skyblue;
+}
+
+h1 {
+    padding: 20px 0;
+    font-family: sans-serif;
+}
+
+p {
+    padding: 5px 0;
+    color: #fff;
+}
+
+.item {
+    display: none;
+}
+
+
+/*========= Slider container==========*/
+
+.slideShow-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+
+/*======== prev button and next button======*/
+
+.prev,
+.next {
+    cursor: pointer;
+    padding: 13px;
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    border-radius: 0 3px 3px 0;
+}
+
+.prev {
+    order: -1;
+    border-radius: 3px 0 0 3px;
+}
+
+
+/*============ slider items=============*/
+
+.item {
+    color: #fff;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 2;
+    padding: 10px 20px;
+    .numberText {
+        padding: 10px 0;
+        font-size: 12px;
+    }
+    img {
+        width: 100%;
+        height: 500px;
+    }
+    .text {
+        color: #f2f2f2;
+        padding: 10px;
+    }
+}
+
+
+/*============= The dots ===========*/
+
+.dot {
+    display: inline-block;
+    cursor: pointer;
+    height: 13px;
+    width: 13px;
+    background: #bbb;
+    border-radius: 50%;
+}
+
+.active,
+.dot:hover {
+    background: #717171;
+}
+
+
+/*========= Fading animation =========*/
+
+.fade {
+    animation: fade 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/*======== SliderShow Container =======*/
+
+//.slideShow-container{
+//    max-width: 800px;
+//    margin: 0 auto;
+//    position: relative;
+//    max-height:600px;
+//    background: rgba(0,0,0,0.8);
+//    img{
+//        height: 500px;
+//        width: 100%
+//    }
+//}
+///*========= Next & Previus button ========*/
+//.prev ,
+//.next{
+//    cursor: pointer;
+//    position: absolute;
+//    top: 50%;
+//    padding: 16px;
+//    margin-top: -22px;
+//    color: #fff;
+//    font-weight: bold;
+//    font-size: 20px;
+//    border-radius: 0 3px 3px 0;
+//    transition:all  0.6s ease;
+//    &:hover{
+//        background: rgba(0,0,0,0.3);
+//    }
+//}
+//.next{
+//    right: 0;
+//    border-radius: 3px 0 0 3px;
+//}
+///*============ Caption Text=============*/
+//.text{
+//    
+//}
