@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title SlideShow||Two
+    link(rel="stylesheet", href="css/main.css")
+    link( href="https://fonts.googleapis.com/css?family=Montserrat|Oswald" rel="stylesheet")
+body
+    nav
+        ul
+            li
+                a.nav_link(href="#") HOME 
+            li
+                a.nav_link(href="#") ABOUT US
+            li
+                a.nav_link(href="#") OUR WORK
+            li
+                a.nav_link(href="#") CONTACT
+    main
+        .SlideShow
+            .slides_item
+                img(src="https://source.unsplash.com/t0MNHVu-1XY/600x600", alt="")
+                .slides_text    Bacon ipsum dolor amet andouille rump flank ham hock pork loin turducken, jowl ribeye strip steak ball tip frankfurter bresaola shankle meatloaf tenderloin. 
+                    
+            .slides_item
+                img(src="https://source.unsplash.com/a_WYq3D86ic/600x600", alt="")
+                .slides_text    Bacon ipsum dolor amet andouille rump flank ham hock pork loin turducken, jowl ribeye strip steak ball tip frankfurter bresaola shankle meatloaf tenderloin. 
+            .slides_item
+                img(src="https://source.unsplash.com/4hxEOapTQGU/600x600", alt="")
+                .slides_text  Bacon ipsum dolor amet andouille rump flank ham hock pork loin turducken, jowl ribeye strip steak ball tip frankfurter bresaola shankle meatloaf tenderloin. 
+            .slides_item
+                img(src="https://source.unsplash.com/wLn_6Y4j7EY/600x600", alt="")
+                .slides_text    Bacon ipsum dolor amet andouille rump flank ham hock pork loin turducken, jowl ribeye strip steak ball tip frankfurter bresaola shankle meatloaf tenderloin. 
+            a.prev#prev() ❮ 
+            a.next#next() ❯
+   
+    script(src="js/main.js")
