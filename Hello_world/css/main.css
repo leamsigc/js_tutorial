@@ -9,6 +9,8 @@
 html,
 body {
     height: 100%;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
 }
 
 .main_container {
@@ -28,26 +30,87 @@ body {
     -ms-flex-direction: column;
     flex-direction: column;
 }
-.container{
-    border-radius:5px;
-    background: rgba(0,0,0,0.4);
+
+.container {
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.2);
     padding: 40px 20px;
     max-width: 965px;
     width: 90%;
     text-align: center;
     margin-bottom: 50px;
 }
-.container h1{
+
+  h1 {
     color: #b3b3b3;
     font-weight: normal;
     line-height: 150%;
     letter-spacing: 1.5px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
 }
-label{
+
+label {
     font-weight: 300;
     font-size: 19px;
     padding: 10px 20px;
     line-height: 150%;
     cursor: pointer;
     color: #e3e3e3;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+#input{
+    display: none;
+}
+
+#on{
+    background: rgba(0,0,0,0.4);
+    width: 50px;
+    height: 20px;
+    border-radius: 30px;
+    position: relative;
+}
+#on:after{
+    display: block;
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: #b3b3b3;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+#input:checked + #on:after{
+    left:30px;
+}
+#input:checked + #on{
+    background: #fff;
+}
+ .container .animateOff {
+    color:#33333 ;
+    -webkit-animation: fade 0.5s;
+    animation: fade 0.5s;
+}
+@-webkit-keyframes fade{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@keyframes fade{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+a{
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 20px;
+    border: 1px solid #b3b3b3;
+    border-radius: 5px;
+    font-weight: 300;
+    cursor: pointer;
 }
