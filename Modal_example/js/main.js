@@ -27,7 +27,7 @@ window.onload = function () {
     });
     //click out of the modal modal close ;
     window.onclick = function (e) {
-        if (e.target == modal||e.target == modalAbout ) {
+        if (e.target == modal) {
             closeModal();
         }
     };
