@@ -2,6 +2,8 @@ window.onload = function () {
     var homeBtn = document.getElementById("home"); //home btn
     var close = document.querySelectorAll(".close");
     var modal = document.getElementById('home_modal');
+    var modalAbout=document.getElementById('about_modal');
+    var aboutBtn=document.getElementById('about');
     var header = document.querySelector('header');
 
     function modalShow(m) {
@@ -17,14 +19,15 @@ window.onload = function () {
     homeBtn.addEventListener('click', function () {
         modalShow(modal);
     });
-
+    aboutBtn.addEventListener('click', function () {
+        modalShow(modalAbout);
+    });
     close[0].addEventListener('click', function () {
         closeModal();
     });
     //click out of the modal modal close ;
     window.onclick = function (e) {
-        console.log(e);
-        if (e.target == modal) {
+        if (e.target == modal||e.target == modalAbout ) {
             closeModal();
         }
     };
