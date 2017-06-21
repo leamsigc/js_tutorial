@@ -1,0 +1,173 @@
+*{
+  box-sizing:border-box;
+  padding: 0;
+  margin: 0;
+  //font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  transition:all 0.5s ease-in-out;
+  
+}
+/* ========== html body reset========= */
+html,
+body{
+  padding: 0;
+  margin: 0;
+  //background:linear-gradient(160deg,skyblue , silver);
+}
+/* ========= Regular css a ========= */
+a{
+  text-decoration: none;
+   color: #6DBCDB;
+  display: inline-block;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  padding: 20px 30px ;
+  text-align: center;
+  letter-spacing: 1.5px;;
+  transition:all 0.3s ease-in-out;
+}
+ul{
+  list-style: none;
+}
+p{
+//  font-family: 'Roboto', sans-serif;
+  line-height: 150%;
+  letter-spacing: 150%;
+}
+/* ==========nav css============  */
+.nav{
+}
+ nav .nav_ul{
+  display: none;
+  flex-wrap:wrap;
+  transition:all 0.5s ease-in-out;
+}
+.nav_ul li{
+text-transform: uppercase;
+  flex:1 1 50%;
+}
+.nav_ul .social{
+  flex-basis:25%;
+}
+.nav_ul li:hover{
+  background: rgba(109,188,219,0.5);
+}
+ .nav .open{
+  display: flex;
+  animation: open 0.4s ease-in-out;
+}
+@keyframes open{
+  0%{
+    transform:scale(0);
+  }
+  80%{
+    transform:scale(1.5);
+  }
+  100%{
+  transform:scale(1);
+}}
+/* logo */
+.logo {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background: rgba(0,0,0,0.5);
+//  background: #D7DADB;
+  color: #fff;
+  padding: 10px;
+}
+.toggle{
+  padding:10px 25px;
+  flex-basis:25%;
+  background: none;
+  color: #6DBCDB;
+}
+.toggle i{
+  margin-right: 5px;
+}
+.name{
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  padding: 10px 25px;
+  color: #6DBCDB;
+}
+/* ********** Home section css ********* */
+header{
+  max-width: 1200px;
+  margin: -80px auto 0;
+  background: url("https://source.unsplash.com/8AceP6OOF3o/1000x800") no-repeat center ;
+  background-size: cover;
+  color: #fff;
+}
+.hero{
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  justify-content:center;
+  flex-direction:column;
+  align-items:center;
+  padding: 85px 5px;
+  text-align: center;
+}
+.main_title{
+  padding: 20px 10px;
+  letter-spacing: 4.2px;
+  margin-left: 20%;
+  font-weight: 900;
+  text-shadow: 2px 4px 5px rgba(255,255,255,0.5);
+  margin-top: 100px;
+  text-align: right;
+}
+.hero p{
+  width: 80%;
+  margin: 20px auto;
+}
+/* ========Main btn====== */
+.main_btn{
+  margin: 40px auto;
+  background: inherit;
+  width: auto;
+  padding: 5px 10px;
+  border: 1px solid #6DBCDB;
+  border-radius: 3px;
+}
+.main_btn:hover{
+  background: #6DBCDB;
+  color: #fff;
+}
+/* *******About img ********* */
+.about{
+  background: #fff;
+  text-align:  center;
+}
+.img_perfil{
+  width: 100px ;
+  height: 100px;
+  margin-top: 50px;
+  border-radius: 50%;
+}
+/*  ===== text About me ======= */
+.text{
+  width: 90%;
+  margin: 40px auto;
+  padding: 10px 5px ;
+//text-align: right;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 1px 1px  4px rgba(0,0,0,0.3) ;
+}
+/* ========= Portfolio section=====••• */
+.portfolio{
+  background: #225378;
+  padding: 50px  0;
+  color: #f2f2f2;
+}
+.portfolio_item{
+  width: 100%;
+  text-align: center;
+}
+.portfolio_item img{
+  width: 95%;
+  height: 400px;
+  background: #fff;
+}
