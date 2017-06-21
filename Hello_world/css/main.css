@@ -93,7 +93,7 @@ label {
     background: #fff;
 }
  .container .animateOff {
-    color:#33333 ;
+    color:#333;
     -webkit-animation: fade 0.5s;
     animation: fade 0.5s;
 }
