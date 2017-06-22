@@ -1,43 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Game || What is the correct anwer</title>
-<!--    meta tag-->
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<!--custom css-->
-<link rel="stylesheet" href="css/game.css">
-<!--google fonts-->
-<link href="https://fonts.googleapis.com/css?family=Kranky|Open+Sans:300,400,700|Playfair+Display:400,700" rel="stylesheet"
-<!-- font awesome cdn -->
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!--    meta tag-->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!--custom css-->
+    <link rel="stylesheet" href="css/game.css">
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Kranky|Open+Sans:300,400,700|Playfair+Display:400,700" rel="stylesheet">
+    <!-- font awesome cdn -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+    <!-- cdn animate css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 </head>
+
 <body>
-   <header>
-       <h1>Ismael Garcia</h1>
-       <nav>
-           <ul class="menu_ul">
-               <li><a href="#" class="menu__link">HOME</a></li>
-               <li><a href="#" class="menu__link">ABOUT</a></li>
-               <li><a href="#" class="menu__link">PORTFOLIO</a></li>
-           </ul>
-       </nav>
-   </header>
-   <hr>
-   <main>
-       <section class="container">
-           <div class="question">
-               What is the sum of <span class="info"v id="field1">5</span> and <span class="info" id="field2">5</span>;
-           </div>
-           <div class="container_option">
-               <div class="option"  id="option1" >5</div>
-               <div class="option"  id="option2" >10</div>
-               <div class="option"  id="option3" >7</div>
-               <div class="option"  id="option4" >8</div>
-           </div>
-            <a class="button">Play Again</a>
-       </section>
-   </main>
+    <header>
+        <h1>Ismael Garcia</h1>
+        <nav>
+            <ul class="menu_ul">
+                <li><a href="#" class="menu__link">HOME</a></li>
+                <li><a href="#" class="menu__link">ABOUT</a></li>
+                <li><a href="#" class="menu__link">PORTFOLIO</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        <section class="container">
+            <div class="question">
+                What is the sum of <span class="info" id="field1"> 5 </span> and <span class="info" id="field2">5</span>;
+            </div>
+            <div class="container_option">
+                <div class="option animated zoomIn" id="option2" onclick="checkAnswer(this)">10</div>
+                <div class="option animated zoomIn" id="option1" onclick="checkAnswer(this)">5</div>
+                <div class="option animated zoomIn" id="option3" onclick="checkAnswer(this)">7</div>
+                <div class="option animated zoomIn" id="option4" onclick="checkAnswer(this)">8</div>
+            </div>
+            <div class="after" id="answerCheck"></div>
+            <a class="button" id="playAgain">Play Again</a>
+        </section>
+        <section class="score">
+            <div class="score_wrong">
+                Wrong :
+                <span id="wrong_js">0</span>
+            </div>
+            <div class="score_correct">
+                correct : 
+                <span id="correct_js">0</span>
+            </div>
+            <div class="score_total">
+                Total :
+                <span id="total_js">0</span>
+            </div>
+        </section>
+    </main>
     <script src="js/game.js"></script>
 </body>
+
 </html>
