@@ -53,22 +53,25 @@ let brick = [];
     for(c = 0 ; c < brickColumnCount;c++){
         brick[c] = [];
         for(r = 0 ; r < brickRowCount;r++){
-            brick[c][r] = {x:0, y:0}
+            brick[c][r] = {x:0, y:0 , status:1}
         }
     }
     //draw the bricks function 
     function drawBrick(){
          for(c = 0 ; c < brickColumnCount;c++){
             for(r = 0 ; r < brickRowCount;r++){
-                let brickX= (c*(brickWidth + brickPadding))+brickOffsetLeft;
-                let brickY= (r*(brickHeight + brickPadding))+brickOffsetTop ;
-                 brick[c][r].x = brickX;
-                 brick[c][r].y = brickY;
-                 ctx.beginPath();
-                 ctx.rect(brickX,brickY,brickWidth,brickHeight);
-                 ctx.fillStyle = '#0095DD';
-                 ctx.fill();
-                 ctx.closePath();
+                if(brick[c][r].status === 1){
+                    let brickX= (c*(brickWidth + brickPadding))+brickOffsetLeft;
+                    let brickY= (r*(brickHeight + brickPadding))+brickOffsetTop ;
+                    brick[c][r].x = brickX;
+                    brick[c][r].y = brickY;
+                    ctx.beginPath();
+                    ctx.rect(brickX,brickY,brickWidth,brickHeight);
+                    ctx.fillStyle = '#0095DD';
+                    ctx.fill();
+                    ctx.closePath(); 
+                }
+                
             }
         }
     }
@@ -109,11 +112,30 @@ function drawPaddle(){
     ctx.fill();
     ctx.closePath();
 }
+//collision detection function 
+function collisionDetection(){
+    for(c = 0 ; c < brickColumnCount;c++){
+        for(r = 0 ; r < brickRowCount;r++){
+           let b = brick[c][r];
+           //calculations
+           if(brick[c][r].status === 1)
+           {
+               if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) 
+               {
+                    dy = -dy;//change the direction of the ball
+                    b.status = 0; //change the brick status 
+                }
+           }
+           
+        }
+    }
+}
 function draw(){
     ctx.clearRect(0,0,canvas.width , canvas.height);//ever 10 milliseconds our rectangle is clear 
     drawBall();//ball
     drawPaddle();//paddle
     drawBrick();//draw the bricks
+    collisionDetection(); // Collision detection 
     //check if the ball hit the top part of our canvas 
     if( y + dy < ballRadius ){
         dy = -dy;
