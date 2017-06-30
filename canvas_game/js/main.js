@@ -39,7 +39,13 @@ let paddleX= (canvas.width - paddleWidth )/2;
 let right =false;
 //left press
 let left = false;
-//add event listener for ke dow
+// Creating the break
+let brickRowCount = 3;//row pf brick
+let brickColumnCount = 5; //column of the brick
+let brickWidth = 75;//width of the brick 
+let brickHeight = 20;//height of the brick
+let brickPadding = 10;//padding of the brick 
+//add event listener for keydown
 document.addEventListener('keydown', keyDownHandler);
 // keyup
 document.addEventListener('keyup', keyUpHandler);
