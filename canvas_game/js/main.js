@@ -47,6 +47,8 @@ let brickHeight = 20;
 let brickPadding = 10;
 let brickOffsetTop = 30;
 let brickOffsetLeft =30;
+//score variable 
+let score = 0;
 //brick array 
 let brick = [];
     //for loop c = column 
@@ -124,11 +126,23 @@ function collisionDetection(){
                {
                     dy = -dy;//change the direction of the ball
                     b.status = 0; //change the brick status 
+                    if(score === brickColumnCount * brickRowCount - 1){
+                        alert('Hell Yea ......Good job !!!');
+                        document.location.reload();
+                    }
+                    score++;
                 }
            }
            
         }
     }
+}
+//draw score 
+function drawScore(){
+    ctx.font = '20px Cursive';
+    ctx.fillStyle = '#fff';
+    ctx.fillText('Score :'+score , 8 , 20 );
+
 }
 function draw(){
     ctx.clearRect(0,0,canvas.width , canvas.height);//ever 10 milliseconds our rectangle is clear 
@@ -136,6 +150,7 @@ function draw(){
     drawPaddle();//paddle
     drawBrick();//draw the bricks
     collisionDetection(); // Collision detection 
+    drawScore()//draw the score in the canvas
     //check if the ball hit the top part of our canvas 
     if( y + dy < ballRadius ){
         dy = -dy;
@@ -169,5 +184,6 @@ function draw(){
     x += dx;//2 x= x+dx
     y +=dy; // -2
 }
+//add 
 //set interval at the end of our code to make sure all our variable star 
 setInterval(draw, 10);//take 2 parameter a function and time 
