@@ -41,14 +41,16 @@ let right =false;
 let left = false;
 //Brick variables 
 let brickRowCount = 3;
-let brickColumnCount = 6;
-let brickWidth = 75;
-let brickHeight = 20;
-let brickPadding = 10;
+let brickColumnCount = 10;
+let brickWidth = 50;
+let brickHeight = 25;
+let brickPadding =10;
 let brickOffsetTop = 30;
 let brickOffsetLeft =30;
 //score variable 
 let score = 0;
+//add lives 
+let lives = 3;
 //brick array 
 let brick = [];
     //for loop c = column 
@@ -144,6 +146,13 @@ function drawScore(){
     ctx.fillText('Score :'+score , 8 , 20 );
 
 }
+//draw lives 
+function drawLives(){
+    ctx.font = '20px Cursive';
+    ctx.fillStyle = '#fff';
+    ctx.fillText('lives:'+lives ,canvas.width - 65, 20 );
+
+}
 function draw(){
     ctx.clearRect(0,0,canvas.width , canvas.height);//ever 10 milliseconds our rectangle is clear 
     drawBall();//ball
@@ -151,6 +160,7 @@ function draw(){
     drawBrick();//draw the bricks
     collisionDetection(); // Collision detection 
     drawScore()//draw the score in the canvas
+    drawLives()//lives
     //check if the ball hit the top part of our canvas 
     if( y + dy < ballRadius ){
         dy = -dy;
@@ -158,8 +168,17 @@ function draw(){
         if(x > paddleX && x <paddleX+paddleWidth){
             dy = -dy;
         }else{
-            alert('Game over !!!;');
+            lives--;
+            if(!lives){
+                alert('Game over !!!;');
             document.location.reload();
+            }else{
+                x = canvas.width/2;
+                y = canvas.height-30;
+                dx = 2;
+                dy = -2;
+                paddleX = (canvas.width - paddleWidth)/2;
+            }
         }
     }
     //left and bottom
@@ -184,6 +203,13 @@ function draw(){
     x += dx;//2 x= x+dx
     y +=dy; // -2
 }
-//add 
+//add Mouse move event handler
+document.addEventListener('mousemove', mouseMoveHandler);
+function mouseMoveHandler(e){
+    let relativeX = e.clientX - canvas.offsetLeft;
+    if(relativeX > 0 + paddleWidth/2 && relativeX < canvas.width- paddleWidth/2){
+        paddleX = relativeX - paddleWidth / 2;
+    }
+}
 //set interval at the end of our code to make sure all our variable star 
 setInterval(draw, 10);//take 2 parameter a function and time 
