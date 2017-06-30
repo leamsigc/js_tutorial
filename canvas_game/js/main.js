@@ -64,7 +64,7 @@ function keyUpHandler(e){
 function drawBall(){
     ctx.beginPath();//begin 
     ctx.arc(x,y,ballRadius,0,Math.PI*2);//circle 
-    ctx.fillStyle = 'skyblue';//what color we wanth to fill our canvas element  
+    ctx.fillStyle = 'skyblue';//what color we wants to fill our canvas element  
     ctx.fill();//call the fill function 
     ctx.closePath();//end
 }
@@ -81,8 +81,17 @@ function draw(){
     drawBall();//ball
     drawPaddle();//paddle
     //check if the ball hit the top part of our canvas 
-    if(y + dy > canvas.height - ballRadius  || y + dy < ballRadius ){
+    if( y + dy < ballRadius ){ //y + dy > canvas.height - ballRadius  if we want the ball go up again 
         dy = -dy;
+    }else if( y + dy > canvas.height - ballRadius ){
+        //check if the ball hit the paddle 
+        if(x > paddleX && x < paddleX + paddleWidth){//check if the ball touch the paddle 
+            dy = - dy ;
+        }else{
+        alert('Game Over');
+        document.location.reload(); 
+        }
+        
     }
     //left and bottom
     if(x + dx > canvas.width - ballRadius || x + dx < ballRadius ){//canvas width - ball radius 10 so the ball hit the wall and no get cut to the middle
@@ -96,7 +105,7 @@ function draw(){
     //     dy = -dy;
     // }
 
-    //check if ke press
+    //check if key press
     if(right && paddleX < canvas.width - paddleWidth){
         paddleX +=7;
     }
