@@ -39,6 +39,39 @@ let paddleX= (canvas.width - paddleWidth )/2;
 let right =false;
 //left press
 let left = false;
+//Brick variables 
+let brickRowCount = 3;
+let brickColumnCount = 6;
+let brickWidth = 75;
+let brickHeight = 20;
+let brickPadding = 10;
+let brickOffsetTop = 30;
+let brickOffsetLeft =30;
+//brick array 
+let brick = [];
+    //for loop c = column 
+    for(c = 0 ; c < brickColumnCount;c++){
+        brick[c] = [];
+        for(r = 0 ; r < brickRowCount;r++){
+            brick[c][r] = {x:0, y:0}
+        }
+    }
+    //draw the bricks function 
+    function drawBrick(){
+         for(c = 0 ; c < brickColumnCount;c++){
+            for(r = 0 ; r < brickRowCount;r++){
+                let brickX= (c*(brickWidth + brickPadding))+brickOffsetLeft;
+                let brickY= (r*(brickHeight + brickPadding))+brickOffsetTop ;
+                 brick[c][r].x = brickX;
+                 brick[c][r].y = brickY;
+                 ctx.beginPath();
+                 ctx.rect(brickX,brickY,brickWidth,brickHeight);
+                 ctx.fillStyle = '#0095DD';
+                 ctx.fill();
+                 ctx.closePath();
+            }
+        }
+    }
 //add event listener for ke dow
 document.addEventListener('keydown', keyDownHandler);
 // keyup
@@ -80,9 +113,17 @@ function draw(){
     ctx.clearRect(0,0,canvas.width , canvas.height);//ever 10 milliseconds our rectangle is clear 
     drawBall();//ball
     drawPaddle();//paddle
+    drawBrick();//draw the bricks
     //check if the ball hit the top part of our canvas 
-    if(y + dy > canvas.height - ballRadius  || y + dy < ballRadius ){
+    if( y + dy < ballRadius ){
         dy = -dy;
+    }else if (y + dy > canvas.height - ballRadius){
+        if(x > paddleX && x <paddleX+paddleWidth){
+            dy = -dy;
+        }else{
+            alert('Game over !!!;');
+            document.location.reload();
+        }
     }
     //left and bottom
     if(x + dx > canvas.width - ballRadius || x + dx < ballRadius ){//canvas width - ball radius 10 so the ball hit the wall and no get cut to the middle
