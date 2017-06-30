@@ -1,14 +1,16 @@
+"use strict";
+
 window.onload = function () {
     var homeBtn = document.getElementById("home"); //home btn
     var modal = document.getElementById('home_modal');
     //close modal 
     var close = document.querySelectorAll(".close");
     //about modal 
-    var modalAbout=document.getElementById('about_modal');
-    var aboutBtn=document.getElementById('about');
+    var modalAbout = document.getElementById('about_modal');
+    var aboutBtn = document.getElementById('about');
     //contact modal 
-    var modalContact=document.getElementById('contact_modal');
-    var contactBtn=document.getElementById('contact');
+    var modalContact = document.getElementById('contact_modal');
+    var contactBtn = document.getElementById('contact');
     //header variable 
     var header = document.querySelector('header');
     //show modal function
@@ -41,17 +43,15 @@ window.onload = function () {
     });
     close[2].addEventListener('click', function () {
         closeModal(modalContact);
-    })
+    }
     //click out of the modal modal close ;
-    window.onclick = function (e) {
+    );window.onclick = function (e) {
         if (e.target == modal) {
             closeModal(modal);
-        }
-        else if (e.target == modalAbout) {
+        } else if (e.target == modalAbout) {
             closeModal(modalAbout);
-        }
-        else if (e.target == modalContact) {
+        } else if (e.target == modalContact) {
             closeModal(modalContact);
         }
     };
-}
+};
