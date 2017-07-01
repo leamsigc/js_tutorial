@@ -39,6 +39,7 @@ let paddleX= (canvas.width - paddleWidth )/2;
 let right =false;
 //left press
 let left = false;
+<<<<<<< HEAD
 // Creating the break
 let brickRowCount = 3;//row pf brick
 let brickColumnCount = 5; //column of the brick
@@ -46,6 +47,49 @@ let brickWidth = 75;//width of the brick
 let brickHeight = 20;//height of the brick
 let brickPadding = 10;//padding of the brick 
 //add event listener for keydown
+=======
+//Brick variables 
+let brickRowCount = 3;
+let brickColumnCount = 10;
+let brickWidth = 50;
+let brickHeight = 25;
+let brickPadding =10;
+let brickOffsetTop = 30;
+let brickOffsetLeft =30;
+//score variable 
+let score = 0;
+//add lives 
+let lives = 3;
+//brick array 
+let brick = [];
+    //for loop c = column 
+    for(c = 0 ; c < brickColumnCount;c++){
+        brick[c] = [];
+        for(r = 0 ; r < brickRowCount;r++){
+            brick[c][r] = {x:0, y:0 , status:1}
+        }
+    }
+    //draw the bricks function 
+    function drawBrick(){
+         for(c = 0 ; c < brickColumnCount;c++){
+            for(r = 0 ; r < brickRowCount;r++){
+                if(brick[c][r].status === 1){
+                    let brickX= (c*(brickWidth + brickPadding))+brickOffsetLeft;
+                    let brickY= (r*(brickHeight + brickPadding))+brickOffsetTop ;
+                    brick[c][r].x = brickX;
+                    brick[c][r].y = brickY;
+                    ctx.beginPath();
+                    ctx.rect(brickX,brickY,brickWidth,brickHeight);
+                    ctx.fillStyle = '#0095DD';
+                    ctx.fill();
+                    ctx.closePath(); 
+                }
+                
+            }
+        }
+    }
+//add event listener for ke dow
+>>>>>>> 0b67b976cf6d8b8738e63a25f1ece92ea753e06f
 document.addEventListener('keydown', keyDownHandler);
 // keyup
 document.addEventListener('keyup', keyUpHandler);
@@ -82,11 +126,53 @@ function drawPaddle(){
     ctx.fill();
     ctx.closePath();
 }
+//collision detection function 
+function collisionDetection(){
+    for(c = 0 ; c < brickColumnCount;c++){
+        for(r = 0 ; r < brickRowCount;r++){
+           let b = brick[c][r];
+           //calculations
+           if(brick[c][r].status === 1)
+           {
+               if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) 
+               {
+                    dy = -dy;//change the direction of the ball
+                    b.status = 0; //change the brick status 
+                    if(score === brickColumnCount * brickRowCount - 1){
+                        alert('Hell Yea ......Good job !!!');
+                        document.location.reload();
+                    }
+                    score++;
+                }
+           }
+           
+        }
+    }
+}
+//draw score 
+function drawScore(){
+    ctx.font = '20px Cursive';
+    ctx.fillStyle = '#fff';
+    ctx.fillText('Score :'+score , 8 , 20 );
+
+}
+//draw lives 
+function drawLives(){
+    ctx.font = '20px Cursive';
+    ctx.fillStyle = '#fff';
+    ctx.fillText('lives:'+lives ,canvas.width - 65, 20 );
+
+}
 function draw(){
     ctx.clearRect(0,0,canvas.width , canvas.height);//ever 10 milliseconds our rectangle is clear 
     drawBall();//ball
     drawPaddle();//paddle
+    drawBrick();//draw the bricks
+    collisionDetection(); // Collision detection 
+    drawScore()//draw the score in the canvas
+    drawLives()//lives
     //check if the ball hit the top part of our canvas 
+<<<<<<< HEAD
     if( y + dy < ballRadius ){ //y + dy > canvas.height - ballRadius  if we want the ball go up again 
         dy = -dy;
     }else if( y + dy > canvas.height - ballRadius ){
@@ -98,6 +184,26 @@ function draw(){
         document.location.reload(); 
         }
         
+=======
+    if( y + dy < ballRadius ){
+        dy = -dy;
+    }else if (y + dy > canvas.height - ballRadius){
+        if(x > paddleX && x <paddleX+paddleWidth){
+            dy = -dy;
+        }else{
+            lives--;
+            if(!lives){
+                alert('Game over !!!;');
+            document.location.reload();
+            }else{
+                x = canvas.width/2;
+                y = canvas.height-30;
+                dx = 2;
+                dy = -2;
+                paddleX = (canvas.width - paddleWidth)/2;
+            }
+        }
+>>>>>>> 0b67b976cf6d8b8738e63a25f1ece92ea753e06f
     }
     //left and bottom
     if(x + dx > canvas.width - ballRadius || x + dx < ballRadius ){//canvas width - ball radius 10 so the ball hit the wall and no get cut to the middle
@@ -120,6 +226,14 @@ function draw(){
     }
     x += dx;//2 x= x+dx
     y +=dy; // -2
+}
+//add Mouse move event handler
+document.addEventListener('mousemove', mouseMoveHandler);
+function mouseMoveHandler(e){
+    let relativeX = e.clientX - canvas.offsetLeft;
+    if(relativeX > 0 + paddleWidth/2 && relativeX < canvas.width- paddleWidth/2){
+        paddleX = relativeX - paddleWidth / 2;
+    }
 }
 //set interval at the end of our code to make sure all our variable star 
 setInterval(draw, 10);//take 2 parameter a function and time 
