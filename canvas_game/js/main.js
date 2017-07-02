@@ -39,15 +39,6 @@ let paddleX= (canvas.width - paddleWidth )/2;
 let right =false;
 //left press
 let left = false;
-<<<<<<< HEAD
-// Creating the break
-let brickRowCount = 3;//row pf brick
-let brickColumnCount = 5; //column of the brick
-let brickWidth = 75;//width of the brick 
-let brickHeight = 20;//height of the brick
-let brickPadding = 10;//padding of the brick 
-//add event listener for keydown
-=======
 //Brick variables 
 let brickRowCount = 3;
 let brickColumnCount = 10;
@@ -89,7 +80,6 @@ let brick = [];
         }
     }
 //add event listener for ke dow
->>>>>>> 0b67b976cf6d8b8738e63a25f1ece92ea753e06f
 document.addEventListener('keydown', keyDownHandler);
 // keyup
 document.addEventListener('keyup', keyUpHandler);
@@ -172,19 +162,6 @@ function draw(){
     drawScore()//draw the score in the canvas
     drawLives()//lives
     //check if the ball hit the top part of our canvas 
-<<<<<<< HEAD
-    if( y + dy < ballRadius ){ //y + dy > canvas.height - ballRadius  if we want the ball go up again 
-        dy = -dy;
-    }else if( y + dy > canvas.height - ballRadius ){
-        //check if the ball hit the paddle 
-        if(x > paddleX && x < paddleX + paddleWidth){//check if the ball touch the paddle 
-            dy = - dy ;
-        }else{
-        alert('Game Over');
-        document.location.reload(); 
-        }
-        
-=======
     if( y + dy < ballRadius ){
         dy = -dy;
     }else if (y + dy > canvas.height - ballRadius){
@@ -203,7 +180,6 @@ function draw(){
                 paddleX = (canvas.width - paddleWidth)/2;
             }
         }
->>>>>>> 0b67b976cf6d8b8738e63a25f1ece92ea753e06f
     }
     //left and bottom
     if(x + dx > canvas.width - ballRadius || x + dx < ballRadius ){//canvas width - ball radius 10 so the ball hit the wall and no get cut to the middle
@@ -226,6 +202,8 @@ function draw(){
     }
     x += dx;//2 x= x+dx
     y +=dy; // -2
+    //request Animation frame
+    requestAnimationFrame(draw);
 }
 //add Mouse move event handler
 document.addEventListener('mousemove', mouseMoveHandler);
@@ -236,4 +214,5 @@ function mouseMoveHandler(e){
     }
 }
 //set interval at the end of our code to make sure all our variable star 
-setInterval(draw, 10);//take 2 parameter a function and time 
+//setInterval(draw, 10);//take 2 parameter a function and time 
+draw();
