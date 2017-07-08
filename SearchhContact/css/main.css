@@ -1,0 +1,9 @@
+body {
+    /*    background-color: #475ca3;*/
+    background: radial-gradient(circle, #475ca3, #48487e);
+    color: #9bb0b9;
+}
+
+.collection-item a {
+    color: #333;
+}
