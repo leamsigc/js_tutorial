@@ -277,6 +277,7 @@ header{
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    clip-path: polygon(0 0, 100% 0%, 100% 94%, 0% 100%);
 }
 .portfolio{
   background: #225378;
@@ -300,7 +301,7 @@ header{
 
 /*Media */
 @media (min-width:800px){
-  .nav-wraper{
+  .nav-wrapper{
     /*background:#333;*/
     display: -webkit-box;
     display: -ms-flexbox;
@@ -398,7 +399,7 @@ header{
       padding: 20px 40px;
     }
     #portfolio{
-      background:radial-gradient(circle,#414167,#282840);
+      /*background:radial-gradient(circle,#414167,#282840);*/
       padding-top: 40px;
     }
   .portfolio{
