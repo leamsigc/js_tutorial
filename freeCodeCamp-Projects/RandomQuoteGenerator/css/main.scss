@@ -1,0 +1,18 @@
+// +++++++++++++++general css =================
+// font-family: 'Cormorant Upright', serif;
+// font-family: 'Josefin Slab', serif;
+// font-family: 'Raleway', sans-serif;
+$color:red;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height:100vh;
+    text-align: center;
+    // background: url();
+    background:linear-gradient(45deg , rgba(rgba(12, 160, 169, 0.37), 0.3) , rgba(7, 179, 153, 0.90)50%,rgba(97, 11, 90, 0.79)90%);
+    background-repeat: no-repeat;
+}
+// ---------------General css end -------------
