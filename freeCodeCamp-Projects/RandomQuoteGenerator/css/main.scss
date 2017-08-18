@@ -41,6 +41,7 @@ a{
 // ========qoute container css========
 .quote-container{
     max-width: 800px;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
@@ -105,6 +106,34 @@ a{
         font-family: 'Cormorant Upright', serif;
         &:hover{
             color: #f2f2f2;
+        }
+    }
+}
+// media querys
+@media (max-width:799px){
+    body{
+        font-size: 13px;
+    }
+}
+@media (max-width:500px){
+    body{
+        font-size: 10px;
+    }
+    .quote-container{
+        padding: 5px;
+    }
+    .title{
+        margin:  10px 0 ;
+    }
+    .quote-button-container{
+        flex-wrap: wrap;
+        .button{
+            flex-basis: 20%;
+            margin: 2px;
+        }
+        .button-quote{
+            flex-basis: 40%;
+            margin-left: auto;
         }
     }
 }

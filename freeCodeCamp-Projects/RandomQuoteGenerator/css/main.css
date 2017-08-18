@@ -51,6 +51,7 @@ a {
 
 .quote-container {
   max-width: 800px;
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -132,3 +133,29 @@ a {
     font-family: 'Cormorant Upright', serif; }
     .quote-button-container .button-quote:hover {
       color: #f2f2f2; }
+
+@media (max-width: 799px) {
+  body {
+    font-size: 13px; } }
+
+@media (max-width: 500px) {
+  body {
+    font-size: 10px; }
+  .quote-container {
+    padding: 5px; }
+  .title {
+    margin: 10px 0; }
+  .quote-button-container {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    .quote-button-container .button {
+      -webkit-flex-basis: 20%;
+      -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+      margin: 2px; }
+    .quote-button-container .button-quote {
+      -webkit-flex-basis: 40%;
+      -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
+      margin-left: auto; } }
