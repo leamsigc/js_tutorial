@@ -45,7 +45,6 @@ a{
     justify-content: space-around;
     flex-direction: column;
     padding: 20px;
-    font-family: 'Raleway', sans-serif;
     background: rgba(#000,0.3);
     border-radius: 5px;
     box-shadow: 5px 2px 11px 1px rgba(36,37,41,0.57);
@@ -62,11 +61,50 @@ a{
     padding: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
+    display: flex;
     .fa{
-        margin: 10px;
+        padding: 5px;
     }
+    .fa-quote-left{
+        margin-top: -30px;
+    }
+}
+.quote-text .fa-quote-right {
+    align-self: flex-end;
+    margin-bottom: -30px;
 }
 // ======quote author =====
 .quote-author{
-
+    text-align: right;
+    padding: 20px;
+    font-family: 'Cormorant Upright', serif;
+}
+// ======== quote-button-container ============
+.quote-button-container{
+    padding: 10px;
+    display: flex;
+    width: 100%;
+    .button{
+        padding:10px 15px ;
+        border: 1px solid rgba(#000,0.3);
+        margin: 10px;
+        color: rgba(5, 160, 242, 0.59);
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 5px;
+        transition: all .3s ease;
+        flex-basis: 50px;
+        &:hover{
+            background: rgba(#000,0.3);
+            color: rgba(5, 160, 242, 0.59);
+        }
+    }
+    .button-quote{
+        margin-left: auto;
+        flex-basis: 300px;
+        font-size: 1.5em;
+        font-family: 'Cormorant Upright', serif;
+        &:hover{
+            color: #f2f2f2;
+        }
+    }
 }

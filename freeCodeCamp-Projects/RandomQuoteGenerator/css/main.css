@@ -64,7 +64,6 @@ a {
   -ms-flex-direction: column;
   flex-direction: column;
   padding: 20px;
-  font-family: 'Raleway', sans-serif;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   -webkit-box-shadow: 5px 2px 11px 1px rgba(36, 37, 41, 0.57);
@@ -80,6 +79,56 @@ a {
 .quote-text {
   padding: 10px;
   margin-top: 20px;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
   .quote-text .fa {
-    margin: 10px; }
+    padding: 5px; }
+  .quote-text .fa-quote-left {
+    margin-top: -30px; }
+
+.quote-text .fa-quote-right {
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+  margin-bottom: -30px; }
+
+.quote-author {
+  text-align: right;
+  padding: 20px;
+  font-family: 'Cormorant Upright', serif; }
+
+.quote-button-container {
+  padding: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%; }
+  .quote-button-container .button {
+    padding: 10px 15px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    color: rgba(5, 160, 242, 0.59);
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 5px;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    -webkit-flex-basis: 50px;
+    -ms-flex-preferred-size: 50px;
+    flex-basis: 50px; }
+    .quote-button-container .button:hover {
+      background: rgba(0, 0, 0, 0.3);
+      color: rgba(5, 160, 242, 0.59); }
+  .quote-button-container .button-quote {
+    margin-left: auto;
+    -webkit-flex-basis: 300px;
+    -ms-flex-preferred-size: 300px;
+    flex-basis: 300px;
+    font-size: 1.5em;
+    font-family: 'Cormorant Upright', serif; }
+    .quote-button-container .button-quote:hover {
+      color: #f2f2f2; }
