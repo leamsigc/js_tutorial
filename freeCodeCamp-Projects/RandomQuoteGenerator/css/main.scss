@@ -3,135 +3,149 @@
 // font-family: 'Josefin Slab', serif;
 // font-family: 'Raleway', sans-serif;
 $color:red;
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-body{
-    min-height:100vh;
+
+body {
+    min-height: 100vh;
     text-align: center;
-    font-size: 16px; 
+    font-size: 16px;
     font-family: 'Raleway', sans-serif;
-    color: rgb(183, 215, 217);
-    // background: url();
+    color: rgb(183, 215, 217); // background: url();
     // background:linear-gradient(45deg , rgba(rgba(12, 160, 169, 0.37), 0.3) , rgba(7, 179, 153, 0.90)50%,rgba(97, 11, 90, 0.79)90%);
-    background: #606c88;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #3f4c6b, #606c88);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #3f4c6b, #606c88); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    background: #606c88;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #3f4c6b, #606c88);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #3f4c6b, #606c88);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-repeat: no-repeat;
 }
-p{
+
+p {
     line-height: 150%;
 }
-a{
+
+a {
     text-decoration: none;
     color: #f7f7f7;
 }
+
 // ---------------General css end -------------
 // ======main css=========
-.main{
-    background:rgba(#000,0.3);
+.main {
+    background: rgba(#000, 0.3);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
+
 // ========qoute container css========
-.quote-container{
+.quote-container {
     max-width: 800px;
     width: 100%;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
     padding: 20px;
-    background: rgba(#000,0.3);
+    background: rgba(#000, 0.3);
     border-radius: 5px;
-    box-shadow: 5px 2px 11px 1px rgba(36,37,41,0.57);
+    box-shadow: 5px 2px 11px 1px rgba(36, 37, 41, 0.57);
 }
+
 // =====title css=======
-.title{
+.title {
     width: 100%;
-    font-size:2.5em;
+    font-size: 2.5em;
     font-family: 'Josefin Slab', serif;
     padding: 20px;
     margin-bottom: 80px;
 }
-.quote-text{
+
+.quote-text {
     padding: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
     display: flex;
-    .fa{
+    .fa {
         padding: 5px;
     }
-    .fa-quote-left{
+    .fa-quote-left {
         margin-top: -30px;
     }
 }
+
 .quote-text .fa-quote-right {
     align-self: flex-end;
     margin-bottom: -30px;
 }
+
 // ======quote author =====
-.quote-author{
+.quote-author {
     text-align: right;
     padding: 20px;
     font-family: 'Cormorant Upright', serif;
 }
+
 // ======== quote-button-container ============
-.quote-button-container{
+.quote-button-container {
     padding: 10px;
     display: flex;
     width: 100%;
-    .button{
-        padding:10px 15px ;
-        border: 1px solid rgba(#000,0.3);
+    .button {
+        padding: 10px 15px;
+        border: 1px solid rgba(#000, 0.3);
         margin: 10px;
         color: rgba(5, 160, 242, 0.59);
         background: rgba(255, 255, 255, 0.12);
         border-radius: 5px;
         transition: all .3s ease;
         flex-basis: 50px;
-        &:hover{
-            background: rgba(#000,0.3);
+        &:hover {
+            background: rgba(#000, 0.3);
             color: rgba(5, 160, 242, 0.59);
         }
     }
-    .button-quote{
+    .button-quote {
         margin-left: auto;
         flex-basis: 300px;
         font-size: 1.5em;
         font-family: 'Cormorant Upright', serif;
-        &:hover{
+        &:hover {
             color: #f2f2f2;
         }
     }
 }
+
 // media querys
-@media (max-width:799px){
-    body{
+@media (max-width:799px) {
+    body {
         font-size: 13px;
     }
 }
-@media (max-width:500px){
-    body{
+
+@media (max-width:500px) {
+    body {
         font-size: 10px;
     }
-    .quote-container{
+    .quote-container {
         padding: 5px;
     }
-    .title{
-        margin:  10px 0 ;
+    .title {
+        margin: 10px 0;
     }
-    .quote-button-container{
+    .quote-button-container {
         flex-wrap: wrap;
-        .button{
+        .button {
             flex-basis: 20%;
             margin: 2px;
         }
-        .button-quote{
+        .button-quote {
             flex-basis: 40%;
             margin-left: auto;
         }
