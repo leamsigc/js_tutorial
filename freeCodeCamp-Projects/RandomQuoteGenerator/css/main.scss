@@ -72,6 +72,10 @@ a {
     margin-top: 20px;
     margin-bottom: 20px;
     display: flex;
+    justify-content: space-around;
+    p{
+        flex: auto;
+    }
     .fa {
         padding: 5px;
     }
