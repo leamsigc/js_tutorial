@@ -78,6 +78,9 @@ a {
   margin-bottom: 80px; }
 
 .quote-text {
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   padding: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -97,6 +100,9 @@ a {
   margin-bottom: -30px; }
 
 .quote-author {
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   text-align: right;
   padding: 20px;
   font-family: 'Cormorant Upright', serif; }
@@ -107,7 +113,10 @@ a {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 100%; }
+  width: 100%;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
   .quote-button-container .button {
     padding: 10px 15px;
     border: 1px solid rgba(0, 0, 0, 0.3);
