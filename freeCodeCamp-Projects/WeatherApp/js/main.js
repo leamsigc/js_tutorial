@@ -1,8 +1,4 @@
 // window load then call the  content ;
-window.addEventListener('load', function(){
-    // Get weather
-    getWeather();
-});
  //Global variables;
  let lat;
  let lng;
@@ -19,6 +15,7 @@ window.addEventListener('load', function(){
     console.log(pos);
     lat = pos.coords.latitude;
     lng = pos.coords.longitude;
+    getWeather();
 }
  //declare error  handler call back ;
  function error(err){
@@ -35,5 +32,26 @@ function getWeather(){
         .then(data => data.json())
         .then(response => {
             console.log(response);
-        });
+            const city = response.list[0].name;
+            const coordLat = response.list[0].coord.lat;
+            const coordLon = response.list[0].coord.lon;
+            const temp = response.list[0].main.temp;
+            const humidity =response.list[0].main.humidity;
+            $demo.innerHTML=`<div class="weather_container">
+                                <div class="weather_city">${city}</div>
+                                <div class="weather_temp">${temp} &deg;C</div>
+                                <div class="weather_icon"><i class="icon-rain"></i></div>
+                                <div class="weather_time">Latitude: ${coordLat}<br>Longitude:${coordLon}</div>
+                                <div class="weather_time">Humidity:${humidity}</div>
+                            </div>`;
+        }).catch();
 }
+
+window.addEventListener('load', function(){
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(getIt,error);
+    }else{
+        error("Sorry your navigator don't support geolocations services.")
+    }
+    // Get weather
+});
