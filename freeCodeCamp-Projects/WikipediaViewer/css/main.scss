@@ -1,0 +1,52 @@
+:root{
+    --tittleFont : 'Inconsolata', monospace;
+    --contentFont:'Raleway', sans-serif;
+    --mainContentcolor:#9CB1BF;
+    --mainBgColor:#121C25;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+// ========== body general css =====
+body{
+    font-family: var(--contentFont);
+    font-size: 12px;
+    font-weight: 300;
+    text-align: center;
+    color: var(--mainContentcolor);
+    // background 
+    background:var(--mainBgColor) ;
+}
+// wrapper-app css general 
+.wrapper-app{
+    // height 
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    header{
+        padding: 20px 0 ;
+        line-height: 150%;
+        font-family: var(--tittleFont);
+        font-size: 1.2rem;
+    }
+}
+// search-container css general
+.search-container{
+    padding: 20px 0 ;
+    width: 100%;
+    font-size: 1.5rem;
+    input[type="text"]{
+        background: var(--mainContentcolor);
+        outline: none;
+        border: none;
+        padding: 10px 10px;
+        border-radius: 5px;
+        min-width: 300px;
+        // color: #9CB1BF;
+        font-weight: bold; 
+    }
+}
