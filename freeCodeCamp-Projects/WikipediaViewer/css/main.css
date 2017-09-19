@@ -69,16 +69,30 @@ body {
   margin: 0 auto;
 }
 .search-display ul {
+  margin-top: 50px;
   list-style: none;
+  display: grid;
+  grid-template-columns:1fr 1fr 1fr ;
+  grid-template-rows:400px auto;
+  
 }
 .search-display .wiki_results{
   text-align: left;
-  padding: 20px 40px;
+  padding:5px 10px;
+}
+.wiki_results:nth-child(even){
+  grid-row: 1 4;
+  grid-column: 2 4;
+  background: #f3f3f2;
+  color: #333;
+}
+.wiki_results:nth-child(even) a{
+  color: #333;
 }
 .wiki_results h2{
   font-size: 2rem;
   text-align: center;
-  padding: 20px 0;
+  padding: 10px 5px;
   line-height: 1.5;
 }
 .wiki_results a {
@@ -93,5 +107,9 @@ body {
   }
   h1{
     font-size: 1.2rem;
+  }
+  .search-display ul{
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
   }
 }
