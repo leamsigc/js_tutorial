@@ -2,13 +2,15 @@
   --tittleFont: 'Inconsolata', monospace;
   --contentFont: 'Raleway', sans-serif;
   --mainContentcolor: #9CB1BF;
-  --mainBgColor: #121C25; }
+  --mainBgColor: #121C25;
+}
 
 * {
   padding: 0;
   margin: 0;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 body {
   font-family: var(--contentFont);
@@ -16,7 +18,8 @@ body {
   font-weight: 300;
   text-align: center;
   color: var(--mainContentcolor);
-  background: var(--mainBgColor); }
+  background: var(--mainBgColor);
+}
 
 .wrapper-app {
   min-height: 100vh;
@@ -36,22 +39,59 @@ body {
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
-  flex-direction: column; }
-  .wrapper-app header {
-    padding: 20px 0;
-    line-height: 150%;
-    font-family: var(--tittleFont);
-    font-size: 1.2rem; }
+  flex-direction: column;
+}
+
+.wrapper-app header {
+  padding: 20px 0;
+  line-height: 150%;
+  font-family: var(--tittleFont);
+  font-size: 1.2rem;
+}
 
 .search-container {
   padding: 20px 0;
   width: 100%;
-  font-size: 1.5rem; }
-  .search-container input[type="text"] {
-    background: var(--mainContentcolor);
-    outline: none;
-    border: none;
-    padding: 10px 10px;
-    border-radius: 5px;
-    min-width: 300px;
-    font-weight: bold; }
+  font-size: 1.5rem;
+}
+
+.search-container input[type="text"] {
+  background: var(--mainContentcolor);
+  outline: none;
+  border: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  max-width: 300px;
+  font-weight: bold;
+}
+.search-display{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.search-display ul {
+  list-style: none;
+}
+.search-display .wiki_results{
+  text-align: left;
+  padding: 20px 40px;
+}
+.wiki_results h2{
+  font-size: 2rem;
+  text-align: center;
+  padding: 20px 0;
+  line-height: 1.5;
+}
+.wiki_results a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 150%;
+}
+@media (max-width: 700px){
+  html , body{
+    font-size: 12px;
+  }
+  h1{
+    font-size: 1.2rem;
+  }
+}
