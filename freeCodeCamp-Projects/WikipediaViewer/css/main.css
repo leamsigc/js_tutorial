@@ -54,7 +54,15 @@ body {
   width: 100%;
   font-size: 1.5rem;
 }
-
+.btn-random{
+  background: rgba(0,0,0, 0.3);
+  padding: 15px 20px;
+  border: none ;
+  border-radius: 5px;
+  margin-top: 20px; 
+  color: #f4f4f4;
+  cursor: pointer;
+}
 .search-container input[type="text"] {
   background: var(--mainContentcolor);
   outline: none;
