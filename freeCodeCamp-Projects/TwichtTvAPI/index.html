@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +8,7 @@
     <!-- google font link  -->
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans+Condensed:300" rel="stylesheet">
     <!-- css icon link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- main css file  -->
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -16,7 +16,29 @@
 <body>
     <!-- main content wrapper -->
     <main class="wrapper">
+        <header>
+            <h1><i class="fa fa-twitch fa-2x" aria-hidden="true"></i>Twitch.TV</h1>
+            <div class="search">
+                <input type="text" id="search" placeholder="Search..">
+            </div>
+            <div class="filters">
+                <button id="all">All</button>
+                <button id="on">Live</button>
+                <button id="off">Off</button>
+            </div>
+        </header>
+        <section id="app" class="display">
+            <ul>
+                <li class="user-info">
+                   <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/esl_sc2-profile_image-d6db9488cec97125-300x300.jpeg" alt=""> 
+                   <a href="#">ESL_SC2</a>
+                   <i class="fa fa-check fa-2x" aria-hidden="true"></i>
+                </li>
+            </ul>
+        </section>  
     </main>
+    <!-- axios library for api calls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
     <!-- main js file  -->
     <script src="js/main.js"></script>
 </body>
