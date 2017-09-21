@@ -82,16 +82,24 @@ ul{
     background: rgba(#000,0.4);
     border-radius: 5px;
     color: green;
-    font-size: 2rem;
+    font-size: 1.2rem;
     margin-top: 1rem;
     box-shadow: 2px 2px 10px #4b367c;
     img{
-        max-width: 120px;
+        width: 60px;
+        height: 60px;
         border-radius: 50%;
     }
     a{
         text-decoration: none;
         font-family: 'Crimson Text', serif;
         color: #fff;
+        text-align: left;
+        border: 1px solid red;
+        display: block;
+        width: 40%;
+    }
+    i.fa-ban{
+        color:red;
     }
 }
