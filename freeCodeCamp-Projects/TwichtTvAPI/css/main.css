@@ -126,7 +126,7 @@ ul {
     font-family: 'Crimson Text', serif;
     color: #fff;
     text-align: left;
-    border: 1px solid red;
+    text-transform: uppercase;
     display: block;
     width: 40%; }
   .user-info i.fa-ban {
