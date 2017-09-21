@@ -1,7 +1,15 @@
-This are all the projects from the tutorial for javascript
+This are all the projects from the tutorial for JavaScript
 // Este folder contine todos los proyectos de los tutoriales de javascript;
-
+Portfolio Ismael Garcia
+    https://leamsigc.github.io/
 
 Game js link live : https://codepen.io/Leamsigc/pen/mwwKRZ
-Modal Example with simple vanilla javascript 
+Modal Example with simple vanilla JavaScript 
     live link codepen.io : https://codepen.io/Leamsigc/pen/NgdvGx
+free codeCamp projects live links here 
+    Random quote Generator
+         https://codepen.io/Leamsigc/pen/BdxqBr
+    TwitchTV Api 
+        https://codepen.io/Leamsigc/pen/VzoQLw
+    Weather app
+        https://codepen.io/Leamsigc/pen/BdGVNy
