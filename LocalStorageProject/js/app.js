@@ -69,4 +69,3 @@ function clearAllTasks() {
         taskList.removeChild(taskList.firstChild);
     }
 }
-// Remove all task from the list
