@@ -10,6 +10,8 @@ const taskInput = document.querySelector('#task');
 
 //Load all event listeners
 function loadEventListeners() {
+    // DOM Load event
+    document.addEventListener('DOMContentLoaded',getTasks);
     //add task event
     form.addEventListener('submit', addTask);
     //Remove task events
@@ -47,6 +49,8 @@ function addTask(e) {
     li.appendChild(link);
     //append the li to the ul
     taskList.appendChild(li);
+    // Store task to local storage
+    storeTaskToLocalStorage(taskInput.value);
     //Clear input value
     taskInput.value = '';
 }
@@ -71,7 +75,7 @@ function clearAllTasks() {
         taskList.removeChild(taskList.firstChild);
     }
 }
-// Filter task 
+// Filter task    bnm,
 function filterTasks(e) {
     //input value 
     const text = e.target.value.toLowerCase();
@@ -86,4 +90,16 @@ function filterTasks(e) {
             item.style.display= 'none';
         }
     });
+}
+// local Store add task
+function storeTaskToLocalStorage(value){
+    let tasks;
+    if(localStorage.getItem('tasks') === null){
+        tasks = [];
+    }else{
+        tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+    tasks.push(value);
+
+    localStorage.setItem('tasks',JSON.stringify(tasks));
 }
