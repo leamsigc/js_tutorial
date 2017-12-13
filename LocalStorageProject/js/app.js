@@ -49,15 +49,24 @@ function addTask(e) {
     taskInput.value = '';
 }
 //Remove task Using Event delegation
-function removeTask(e){
+function removeTask(e) {
     console.log(e.target.className);
-    if(e.target.parentElement.classList.contains('delete-item')){
+    if (e.target.parentElement.classList.contains('delete-item')) {
         //remove the li element
         // e.target.parentElement.parentElement.remove();
         //Confirm if the user one to delete the item
-        if(confirm('Are you sure!')){
+        if (confirm('Are you sure!')) {
             e.target.parentElement.parentElement.remove();
         }
+    }
+}
+// Clear all task from tasks list
+function clearAllTasks() {
+    //Simple way
+    // taskList.innerHTML = '';
+    // FASTER MODE
+    while (taskList.firstChild) {
+        taskList.removeChild(taskList.firstChild);
     }
 }
 // Remove all task from the list
