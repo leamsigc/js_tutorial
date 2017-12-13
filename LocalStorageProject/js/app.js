@@ -14,6 +14,8 @@ function loadEventListeners() {
     form.addEventListener('submit', addTask);
     //Remove task events
     taskList.addEventListener('click', removeTask);
+    // clear task
+    clearBtn.addEventListener('click', clearAllTasks);
 }
 //Load all events listener.
 loadEventListeners();
@@ -48,7 +50,14 @@ function addTask(e) {
 }
 //Remove task Using Event delegation
 function removeTask(e){
-    if(e.target.className === 'delete-item'){
-
+    console.log(e.target.className);
+    if(e.target.parentElement.classList.contains('delete-item')){
+        //remove the li element
+        // e.target.parentElement.parentElement.remove();
+        //Confirm if the user one to delete the item
+        if(confirm('Are you sure!')){
+            e.target.parentElement.parentElement.remove();
+        }
     }
 }
+// Remove all task from the list
