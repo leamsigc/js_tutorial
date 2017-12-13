@@ -86,4 +86,18 @@ function filterTasks(e) {
             item.style.display= 'none';
         }
     });
+}Tasks(e) {
+    //input value 
+    const text = e.target.value.toLowerCase();
+    const listItems = document.querySelectorAll('.collection-item');
+    listItems.forEach(item => {
+        // item.style.display='block';
+        let textContent = item.firstChild.textContent.toLowerCase();
+        if(textContent.indexOf(text) != -1){
+            item.style.color='red'
+            item.style.display= 'block';
+        }else{
+            item.style.display= 'none';
+        }
+    });
 }
