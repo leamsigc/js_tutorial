@@ -74,6 +74,7 @@ function clearAllTasks() {
     while (taskList.firstChild) {
         taskList.removeChild(taskList.firstChild);
     }
+    localStorage.clear();
 }
 // Filter task    bnm,
 function filterTasks(e) {
@@ -102,4 +103,18 @@ function storeTaskToLocalStorage(value){
     tasks.push(value);
 
     localStorage.setItem('tasks',JSON.stringify(tasks));
+}
+// Get task when the dom loaded fot the fist time
+function getTasks(){
+    const allTasks = JSON.parse(localStorage.getItem('tasks'));
+    if(allTasks === null ) return;
+    console.log(allTasks);
+    let html='';
+    allTasks.forEach(item => {
+        html+=`<li class='collection-item'>${item}<a class='secondary-item delete-item'><i class='fa fa-delete'></i></a>
+               </li>
+               `;
+    });
+    console.log(html);
+    taskList.innerHTML = html;
 }
