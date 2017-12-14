@@ -10,6 +10,8 @@ const taskInput = document.querySelector('#task');
 
 //Load all event listeners
 function loadEventListeners() {
+    // DOM Load event
+    document.addEventListener('DOMContentLoaded',getTasks);
     //add task event
     form.addEventListener('submit', addTask);
     //Remove task events
@@ -47,6 +49,8 @@ function addTask(e) {
     li.appendChild(link);
     //append the li to the ul
     taskList.appendChild(li);
+    // Store task to local storage
+    storeTaskToLocalStorage(taskInput.value);
     //Clear input value
     taskInput.value = '';
 }
@@ -70,8 +74,9 @@ function clearAllTasks() {
     while (taskList.firstChild) {
         taskList.removeChild(taskList.firstChild);
     }
+    localStorage.clear();
 }
-// Filter task 
+// Filter task    bnm,
 function filterTasks(e) {
     //input value 
     const text = e.target.value.toLowerCase();
@@ -86,18 +91,30 @@ function filterTasks(e) {
             item.style.display= 'none';
         }
     });
-}Tasks(e) {
-    //input value 
-    const text = e.target.value.toLowerCase();
-    const listItems = document.querySelectorAll('.collection-item');
-    listItems.forEach(item => {
-        // item.style.display='block';
-        let textContent = item.firstChild.textContent.toLowerCase();
-        if(textContent.indexOf(text) != -1){
-            item.style.color='red'
-            item.style.display= 'block';
-        }else{
-            item.style.display= 'none';
-        }
+}
+// local Store add task
+function storeTaskToLocalStorage(value){
+    let tasks;
+    if(localStorage.getItem('tasks') === null){
+        tasks = [];
+    }else{
+        tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+    tasks.push(value);
+
+    localStorage.setItem('tasks',JSON.stringify(tasks));
+}
+// Get task when the dom loaded fot the fist time
+function getTasks(){
+    const allTasks = JSON.parse(localStorage.getItem('tasks'));
+    if(allTasks === null ) return;
+    console.log(allTasks);
+    let html='';
+    allTasks.forEach(item => {
+        html+=`<li class='collection-item'>${item}<a class='secondary-item delete-item'><i class='fa fa-delete'></i></a>
+               </li>
+               `;
     });
+    console.log(html);
+    taskList.innerHTML = html;
 }
