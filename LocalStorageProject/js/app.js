@@ -63,6 +63,8 @@ function removeTask(e) {
         //Confirm if the user one to delete the item
         if (confirm('Are you sure!')) {
             e.target.parentElement.parentElement.remove();
+            // Remove Task from Local storage
+            removeTaskFromLocalStorage(e.target.parentElement.parentElement)
         }
     }
 }
@@ -109,12 +111,36 @@ function getTasks(){
     const allTasks = JSON.parse(localStorage.getItem('tasks'));
     if(allTasks === null ) return;
     console.log(allTasks);
-    let html='';
+    let html;
     allTasks.forEach(item => {
-        html+=`<li class='collection-item'>${item}<a class='secondary-item delete-item'><i class='fa fa-delete'></i></a>
-               </li>
-               `;
+        const li = document.createElement('li');
+        //add class
+        li.className = 'collection-item';
+        //create text node
+        const text = document.createTextNode(item);
+        // append  text node to it
+        li.appendChild(text);
+        //create new link element
+        const link = document.createElement('a');
+        link.className = 'delete-item secondary-content';
+        //add icon html
+        link.innerHTML = `<i class='fa fa-remove'></i>`;
+        //append the link to the li
+        li.appendChild(link);
+        //append the li to the ul
+        taskList.appendChild(li);
     });
-    console.log(html);
-    taskList.innerHTML = html;
+}
+// Remove task from the local storage
+function removeTaskFromLocalStorage(taskItem){
+    const allTasks = JSON.parse(localStorage.getItem('tasks'));
+    if(allTasks === null ) return;
+    
+    allTasks.forEach((item, index) => {
+        if(taskItem.textContent === item){
+            allTasks.splice(index,1);
+        }
+    });
+    // Reset local storage after remove the task item
+    localStorage.setItem('tasks', JSON.stringify(allTasks))
 }
