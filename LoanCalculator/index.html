@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Loan Calculator </title>
+    <!-- bootstrap c d n -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+</head>
+
+<body class="bg-primary">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card card-body text-center mt-5">
+                    <h1 class="heading display-5 pb-3">Loan Calculator</h1>
+                    <form id="form">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input type="number" id="amount" class="form-control" placeholder="Loan Amount..">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">%</span>
+                                <input type="number" id="interest" class="form-control" placeholder="of Interest ..">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="years" class="form-control" placeholder="Years to Repay...">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Calculate" class="btn btn-outline-primary btn-block">
+                        </div>
+                    </form>
+                    <!-- IMG LOADER -->
+                    <!-- LOADER IMG -->
+                    <div id="result" class="pt6">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">Monthly Payments:</span>
+                                <input type="number" name="" id="monthly-payment" class="form-control" disabled >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">Total Payments:</span>
+                                <input type="number" name="" id="total-payment" class="form-control" disabled >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">Total Interest:</span>
+                                <input type="number" name="" id="total-interest" class="form-control" disabled >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery and bootstrap js files -->
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
+
+    <!-- main js file  -->
+    <script src="./app.js"></script>
+</body>
+
+</html>
