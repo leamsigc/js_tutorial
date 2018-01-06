@@ -10,7 +10,7 @@ class Book{
 
 //ui constructor
 class UI {
-    displaMessage(message,uiClass){
+    displayMessage(message,uiClass){
         const div = document.createElement('div');
         div.className = uiClass;
         div.appendChild(document.createTextNode(message));
@@ -50,6 +50,7 @@ class UI {
     deleteBooks(target){
         if(target.classList.contains('delete')){
             target.parentElement.parentElement.remove();
+            this.displayMessage('you have remove a book successfully...','success');
         }
     }
 }
@@ -67,7 +68,7 @@ function addBook(e){
     //check if input have value
     if(!title || !author || !isbn){
         //display error message and return
-        ui.displaMessage('Please check all the fields..','error');
+        ui.displayMessage('Please check all the fields..','error');
         return false;
     }
     //create anew book object
@@ -76,7 +77,7 @@ function addBook(e){
     //display the ui.display book
     ui.addBookList(book);
     //display success message
-    ui.displaMessage('Good job you just added another book.','success');
+    ui.displayMessage('Good job you just added another book.','success');
     //reset fields
     ui.resetFields();
 }
@@ -91,7 +92,7 @@ function removeBook(e) {
     ui.deleteBooks(e.target);
 
     //display message success
-    ui.displaMessage('you have remove a book successfully...','success');
+    // ui.displayMessage('you have remove a book successfully...','success');
 }
 
 const bookForm = document.querySelector('#book_form');
