@@ -11,7 +11,7 @@ function Ui() {}
 
 //crate the prototype for the ui to add a book to the list
 Ui.prototype.addBookList = function (book) {
-    console.log(book);
+    // console.log(book);
     //ui table component
     const bookList = document.querySelector('#book-list');
 
@@ -46,13 +46,20 @@ Ui.prototype.showAlert = function(message,uiClass){
     const p = document.createElement('p');
     p.className = `alert ${uiClass}`;
     p.appendChild(document.createTextNode(message));
-    console.log(p);
+    // console.log(p);
     parent.insertBefore(p,h1);
 
     //remove after 3s
     setTimeout(() => {
         document.querySelector('.alert').remove();
     }, 3000);
+}
+
+//Ui delete item
+Ui.prototype.deleteItem = function (target){
+    if(target.classList.contains('delete')){
+        target.parentElement.parentElement.remove();
+    }
 }
 //add book function
 function addBook(e) {
@@ -85,5 +92,22 @@ function addBook(e) {
     UI.clearFields();
 }
 
-//event listener
+//event listener add books
 document.getElementById('book_form').addEventListener('submit', addBook);
+
+
+//add books function
+function removeBooks(e) {
+    e.preventDefault();
+    
+    //create a new ui object
+    const UI = new Ui();
+
+    //delete item 
+    UI.deleteItem(e.target)
+
+    //show a alert
+    UI.showAlert('Book removed!!','success');
+}
+//event listener for delete books
+document.getElementById('book-list').addEventListener('click', removeBooks);
