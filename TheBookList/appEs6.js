@@ -54,8 +54,46 @@ class UI {
         }
     }
 }
-//
 
+
+//to local storage
+class Store{
+
+    static addBookToLocalStorage(book){
+        const allBooks = Store.getAllBooks();
+        allBooks.push(book);
+        localStorage.setItem('books',JSON.stringify(allBooks));
+    }
+
+
+    static getAllBooks(){
+        let books ;
+        if(!localStorage.getItem('books')){
+            books = [];
+        }else{
+            books = JSON.parse(localStorage.getItem('books'));
+        }
+        return books;
+    }
+
+
+    static displayBooks(){
+        const ui = new UI();
+        Store.getAllBooks().map(book => ui.addBookList(book));
+    }
+
+
+    static removeBookFromLocalStorage(isbn){
+        const allBooks = Store.getAllBooks();
+        allBooks.map((book, index) => {
+            if(book.isbn === isbn ){
+                allBooks.splice(index,1);
+            }
+        })
+        console.log(allBooks);
+        localStorage.setItem('books', JSON.stringify(allBooks));
+    }
+}
 //add book
 function addBook(e){
     e.preventDefault();
@@ -65,6 +103,7 @@ function addBook(e){
           isbn = document.querySelector('#isbn').value;
     //create a new ui object
     const ui = new UI();
+
     //check if input have value
     if(!title || !author || !isbn){
         //display error message and return
@@ -73,9 +112,10 @@ function addBook(e){
     }
     //create anew book object
     const book = new Book(title,author,isbn);
-
     //display the ui.display book
     ui.addBookList(book);
+    //add to local storage
+    Store.addBookToLocalStorage(book);
     //display success message
     ui.displayMessage('Good job you just added another book.','success');
     //reset fields
@@ -87,10 +127,13 @@ function removeBook(e) {
     e.preventDefault();
     //new ui object
     const ui  = new UI();
-
+    if(!e.target.parentElement.previousElementSibling) return
     //delete item
     ui.deleteBooks(e.target);
-
+    // console.log(e.target.parentElement.previousElementSibling.textContent);
+    //delete from local storage
+        //previus element of the a tag the td #isbn
+    Store.removeBookFromLocalStorage(e.target.parentElement.previousElementSibling.textContent);
     //display message success
     // ui.displayMessage('you have remove a book successfully...','success');
 }
@@ -101,3 +144,11 @@ bookForm.addEventListener('submit',addBook);
 const bookDisplayList = document.querySelector('#book-list');
 
 bookDisplayList.addEventListener('click',removeBook);
+window.addEventListener('DOMContentLoaded',function(){
+    // const ui = new UI;
+    // const allBooks = Store.getAllBooks();
+    // allBooks.map(function(book){
+    //     return ui.addBookList(book);
+    // });
+    Store.displayBooks();
+});
