@@ -90,7 +90,7 @@ class Store{
                 allBooks.splice(index,1);
             }
         })
-        console.log(allBooks);
+        // console.log(allBooks);
         localStorage.setItem('books', JSON.stringify(allBooks));
     }
 }

@@ -61,6 +61,45 @@ Ui.prototype.deleteItem = function (target){
         target.parentElement.parentElement.remove();
     }
 }
+
+function Storage(){
+
+}
+
+
+Storage.prototype.getAllBooks = function (){
+    let books;
+    if(!localStorage.getItem('books')){
+        books = [];
+    }else{
+        books = JSON.parse(localStorage.getItem('books'));
+    }
+    return books;
+};
+
+Storage.prototype.addBookToLocalStorage = function(book){
+    const allBooks = this.getAllBooks();
+    allBooks.push(book);
+    localStorage.setItem('books',JSON.stringify(allBooks));
+};
+
+Storage.prototype.displayAllBooks = function(){
+    const ui = new Ui();
+        this.getAllBooks().map(book => ui.addBookList(book));
+}
+
+Storage.prototype.deleteBook = function(isbn){
+    const allBooks = this.getAllBooks();
+    allBooks.map((book, index) => {
+        if(book.isbn === isbn ){
+            allBooks.splice(index,1);
+        }
+    })
+    // console.log(allBooks);
+    localStorage.setItem('books', JSON.stringify(allBooks));
+
+}
+// console.log(Storage);
 //add book function
 function addBook(e) {
     e.preventDefault();
@@ -71,6 +110,7 @@ function addBook(e) {
     
     //instantiated ui
     const UI = new Ui();
+    const store = new Storage();
     
     if (!title || !author || !isbn) {
         UI.showAlert('Please fill in all the fields','error');
@@ -83,7 +123,8 @@ function addBook(e) {
     
     //add book 
     UI.addBookList(book);
-    
+    store.addBookToLocalStorage(book);
+    // store.getAllBooks();
     //success alert
     UI.showAlert('Good job You have successfully added a new book.','success');
 
@@ -99,15 +140,22 @@ document.getElementById('book_form').addEventListener('submit', addBook);
 //add books function
 function removeBooks(e) {
     e.preventDefault();
-    
+    if(!e.target.parentElement.previousElementSibling) return
     //create a new ui object
     const UI = new Ui();
+    const store = new Storage();
 
     //delete item 
     UI.deleteItem(e.target)
-
+    store.deleteBook(e.target.parentElement.previousElementSibling.textContent);
     //show a alert
     UI.showAlert('Book removed!!','success');
 }
 //event listener for delete books
 document.getElementById('book-list').addEventListener('click', removeBooks);
+window.addEventListener('DOMContentLoaded', function(){
+    const store = new Storage();
+    console.log(store)
+    store.displayAllBooks();
+});
+// Storage.getAllBooks();
