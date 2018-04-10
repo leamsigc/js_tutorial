@@ -3,7 +3,7 @@
 Portfolio Ismael Garcia
     https://leamsigc.github.io/
 
-* [Game js] ( https://codepen.io/Leamsigc/pen/mwwKRZ)
+[Game js] ( https://codepen.io/Leamsigc/pen/mwwKRZ)
 Modal Example with simple vanilla JavaScript 
     live link codepen.io : https://codepen.io/Leamsigc/pen/NgdvGx
 free codeCamp projects live links here 
@@ -13,4 +13,5 @@ free codeCamp projects live links here
         https://codepen.io/Leamsigc/pen/VzoQLw
     Weather app
         https://codepen.io/Leamsigc/pen/BdGVNy
-  * [Hello world app] (https://leamsigc.github.io/js_tutorial/Hello_world/)
+  [Hello world app] (https://leamsigc.github.io/js_tutorial/Hello_world/)
+  
